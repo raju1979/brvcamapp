@@ -1,0 +1,80 @@
+<ion-content>
+
+  <div id="outerContainer" [style.backgroundImage]="'url('+ getImageFromAssets('main_bg.jpeg') +')'">
+    <div id="topArea">
+
+      <div id="mainBtn" [style.backgroundImage]="'url('+ getImageFromAssets('play.png') +')'" (click)='toggleSecondaryButtonBar()'>
+      </div>
+
+      <div id="extraBtnArea" *ngIf='showSecondaryButtonBar'>
+        <button ion-button icon-only clear large (click)='videoFromCamera()'>
+          <ion-icon name="camera" color='light'></ion-icon>
+        </button>
+        <button ion-button icon-only clear large (click)='VideoFromGallery()'>
+          <ion-icon name="images" color='light'></ion-icon>
+        </button>
+      </div>
+
+    </div>
+
+    <div id="bottomArea">
+
+      <div id="videoFileContainer" *ngIf='capturedVideoFileName'>
+        <span>{{capturedVideoFileName}}</span>
+        <button ion-button clear medium (click)='compressVideo(videoUrl)'>
+          <ion-icon name="checkmark-circle" color='primary'></ion-icon>
+        </button>
+      </div>
+
+      <div id="compressionContainer" *ngIf='totalCompressed > 0'>
+        <div class="listText">
+          Compressing Video.
+        </div>
+
+        <div class="progressBarContainer">
+          <span class="progressBar" [style.width]="totalCompressed+'%'"></span>
+        </div>
+      </div>
+
+      <div id="uploadContainer" *ngIf='uploadProgress > 0'>
+        <div class="listText">
+          Uploading Video.
+        </div>
+
+        <div class="progressBarContainer">
+          <span class="progressBar" [style.width]="uploadProgress+'%'"></span>
+        </div>
+      </div>
+
+      <p class="downloadProgressText" ion-text color='primary' *ngIf='downloadedPercentage > 0'>Download :: {{downloadedPercentage}}%</p>
+
+
+    </div><!--end bottomArea-->
+
+  </div>
+
+</ion-content>
+
+<ion-footer>
+
+  <ion-grid *ngIf='uploadSuccefull'>
+    <ion-row>
+      <ion-col col-3>
+        <button ion-button icon-only (click)="downloadVideo()">
+          <ion-icon name="cloud-download"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button icon-only (click)="mailLink()" *ngIf='videoBaseStr'>
+          <ion-icon name="mail"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button icon-only (click)="playVideo()" *ngIf='videoBaseStr'>
+          <ion-icon name="play"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-footer>

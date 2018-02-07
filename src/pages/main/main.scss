@@ -1,0 +1,106 @@
+page-main {
+
+    #outerContainer{
+        width: 100%;
+        height: 100%;
+        background: red;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    #topArea,#bottomArea{
+        width: 100%;
+        height: 50%;
+        box-sizing: border-box;
+    }
+
+    #topArea{
+        flex:1;
+        background: rgba(10,30,50,.5);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    #mainBtn{
+        width: 100px;
+        height: 100px;
+        box-sizing: border-box;
+        border-radius: 50%;
+        background-size:cover;
+        background-position: center;
+        transition: all 1s linear;
+    }
+
+    #extraBtnArea{
+        width: 100%;
+        height: 60px;
+        background: rgba(187,222,25,.1);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    #bottomArea{
+        flex:2;
+        width: 100%;
+        padding: 10px;
+    }
+
+    #videoFileContainer{
+        width: 100%;
+        min-height: 40px;
+        background: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px;
+        border-radius:2px;
+        font-weight: bold;
+        box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
+    }
+
+    #compressionContainer{
+        width: 100%;
+    }
+
+    .progressBarContainer{
+        margin: 10px 0;
+        width: 100%;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        background: #cecece;
+        position: relative;
+    }
+
+    .progressBar{
+        display: inline-block;
+        align-self: center;
+        width: 1%;
+        height: 50%;
+        background: orange;
+        box-shadow: 0px 2px 2px rgba(10,20,30,.8);
+    }
+
+    .listText{
+        margin: 10px 0;
+        height: 30px;
+        line-height: 30px;
+        font-weight: bold;
+        font-size: 2rem;
+        text-align: center;
+        color: color($colors,light);
+    }
+
+    .downloadProgressText{
+        text-align: center;
+        font-weight: bold;
+        font-size: 3rem;
+    }
+
+}

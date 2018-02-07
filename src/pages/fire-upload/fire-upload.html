@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <p>{{uploadProgress}}</p>
+  <p>{{uploadSuccefull}}</p>
+  <p>{{downloadURL}}</p>
+
+  <p *ngIf='downloadedPercentage > 0'>Downloaded percent :: {{downloadedPercentage}}</p>
+
+  <video width="320" height="240" controls #myvideo>
+
+  </video>
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-3>
+        <button ion-button icon-only (click)="videoFromCamera()">
+          <ion-icon name="camera"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button icon-only (click)="VideoFromGallery()">
+          <ion-icon name="image"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button icon-only (click)="compressVideo()">
+          <ion-icon name="home"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button icon-only (click)="downloadVideo()">
+          <ion-icon name="cloud-upload"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
